@@ -1,4 +1,30 @@
-# To-do List API
+
+# Schedule App
+
+---
+# ER Diagram
+
+```mermaid
+erDiagram
+    AUTHOR {
+        string id PK
+        string name
+        string password
+        string email
+        datetime createdAt
+        datetime modifiedAt
+    }
+    SCHEDULE {
+        string id PK
+        string task
+        string authorId FK
+        datetime createdAt
+        datetime modifiedAt
+    }
+    AUTHOR ||--o{ SCHEDULE : "has"
+```
+---
+# API Specification
 
 ## Level 1: Create/Read
 ### Post Schedule
@@ -120,25 +146,21 @@ Response 200
   }
 ]
 ```
----
-# ER Diagram
+## Level 4: Paging
+### Get All Schedules with Paging
+```javascript
+GET /api/v1/schedules?modifiedAt={YYYY-MM-DD}&authorName={authorName}&page={page}&size={size}
 
-```mermaid
-erDiagram
-    AUTHOR {
-        string id PK
-        string name
-        string password
-        string email
-        datetime createdAt
-        datetime modifiedAt
-    }
-    SCHEDULE {
-        string id PK
-        string task
-        string authorId FK
-        datetime createdAt
-        datetime modifiedAt
-    }
-    AUTHOR ||--o{ SCHEDULE : "has"
+Response 200
+[
+  {
+    "id": "string",
+    "task": "string",
+    "authorId": "string", 
+    "authorName": "string",
+    "createdAt": "datetime",
+    "modifiedAt": "datetime"
+  }
+]
 ```
+
