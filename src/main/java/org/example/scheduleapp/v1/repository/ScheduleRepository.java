@@ -58,6 +58,8 @@ public class ScheduleRepository {
             sql.append(" AND author_name = ?");
         }
 
+        sql.append(" ORDER BY modified_at DESC");
+
         if (modifiedAt != null && authorName != null && !authorName.isEmpty()) {
             return jdbcTemplate.query(sql.toString(), rowMapper, modifiedAt, authorName);
         } else if (modifiedAt != null) {

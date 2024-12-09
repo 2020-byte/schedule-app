@@ -56,7 +56,7 @@ Response 200
 ## Level 2: Update/Delete
 ### Patch Schedule
 ```javascript
-PATCH /api/schedules/{id}
+PATCH /api/v2/schedules/{id}
 {
   "task": "string",
   "authorName": "string",
@@ -76,7 +76,7 @@ Response 200
 
 ### Delete Schedule
 ```javascript
-DELETE /api/schedules/{id}
+DELETE /api/v2/schedules/{id}
 {
   "password": "string"
 }
@@ -87,7 +87,7 @@ Response 204
 ## Level 3: User Management
 ### Patch Email
 ```javascript
-PATCH /api/authors/email
+PATCH /api/v3/authors/email
 {
   "authorName": "string",
   "password": "string",
@@ -106,7 +106,7 @@ Response 200
 
 ### Get Schedules by Author ID
 ```javascript
-GET /api/authors/{authorId}/schedules
+GET /api/v3/authors/{authorId}/schedules
 
 Response 200
 [
