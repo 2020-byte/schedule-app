@@ -163,4 +163,79 @@ Response 200
   }
 ]
 ```
+## Level 5: Exception Handling
+### **Get Schedule by Schedule ID**
+**Endpoint**: `GET /api/v5/schedules/{id}`
 
+#### Possible Exceptions
+1. **Schedule Not Found**
+    - **Condition**: When the specified `id` does not match any existing schedule.
+    - **HTTP Status Code**: `404 Not Found`
+    - **Error Message**:
+      ```json
+      {
+        "timestamp": "datetime",
+        "status": 404,
+        "message": "Schedule not found with id: {id}"
+      }
+      ```
+
+---
+
+### **Patch Schedule**
+**Endpoint**: `PATCH /api/v5/schedules/{id}`
+
+#### Possible Exceptions
+1. **Schedule Not Found**
+    - **Condition**: When the specified `id` does not match any existing schedule.
+    - **HTTP Status Code**: `404 Not Found`
+    - **Error Message**:
+      ```json
+      {
+        "timestamp": "datetime",
+        "status": 404,
+        "message": "Schedule not found with id: {id}"
+      }
+      ```
+
+2. **Invalid Password**
+    - **Condition**: When the provided `password` does not match the schedule's author password.
+    - **HTTP Status Code**: `401 Unauthorized`
+    - **Error Message**:
+      ```json
+      {
+        "timestamp": "datetime",
+        "status": 401,
+        "message": "Invalid password"
+      }
+      ```
+
+---
+
+### **Delete Schedule**
+**Endpoint**: `DELETE /api/v5/schedules/{id}`
+
+#### Possible Exceptions
+1. **Schedule Not Found**
+    - **Condition**: When the specified `id` does not match any existing schedule.
+    - **HTTP Status Code**: `404 Not Found`
+    - **Error Message**:
+      ```json
+      {
+        "timestamp": "datetime",
+        "status": 404,
+        "message": "Schedule not found with id: {id}"
+      }
+      ```
+
+2. **Invalid Password**
+    - **Condition**: When the provided `password` does not match the schedule's author password.
+    - **HTTP Status Code**: `401 Unauthorized`
+    - **Error Message**:
+      ```json
+      {
+        "timestamp": "datetime",
+        "status": 401,
+        "message": "Invalid password"
+      }
+      ```
