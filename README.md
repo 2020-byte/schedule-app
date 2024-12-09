@@ -3,7 +3,7 @@
 ## Level 1: Create/Read
 ### Post Schedule
 ```javascript
-POST /api/schedules
+POST /api/v1/schedules
 {
   "task": "string",
   "authorName": "string",
@@ -23,7 +23,7 @@ Response 200
 
 ### Get All Schedules
 ```javascript
-GET /api/schedules?modifiedAt={YYYY-MM-DD}&authorName={authorName}
+GET /api/v1/schedules?modifiedAt={YYYY-MM-DD}&authorName={authorName}
 
 Response 200
 [
@@ -40,7 +40,7 @@ Response 200
 
 ### Get Schedule by Schedule ID
 ```javascript
-GET /api/schedules/{id}
+GET /api/v1/schedules/{id}
 
 Response 200
 {
