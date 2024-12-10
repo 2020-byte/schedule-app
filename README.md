@@ -1,5 +1,58 @@
 
-# Schedule App
+# ScheduleApp API Documentation
+
+This is a Spring Boot application built to handle schedules with multiple API versions. The application uses **Lombok**, **JDBC**, and an **H2 in-memory database**.
+
+---
+
+## **How to Run the Server**
+1. Start the Spring Boot application.
+2. APIs are accessible through `/api/v1`, `/api/v2`, ..., `/api/v5`, where each version corresponds to a specific level of API functionality. (Since an in-memory database is used, all levels of APIs are designed to run within a single application execution.)
+3. Visit `/` in your browser to access the **H2 database workbench**.
+
+---
+
+## **H2 Database Configuration**
+The necessary database connection details are located in the `application.properties` file. Use this file to:
+- Access the H2 workbench.
+- Configure database settings if needed.
+
+---
+
+## **Project Structure**
+
+### **Main Directory Structure**
+```plaintext
+src
+├── main
+│   ├── java
+│   │   └── org.example.scheduleapp
+│   │       ├── controller      # Common controllers
+│   │       ├── entity          # Shared entity definitions
+│   │       ├── v1              # API version 1 (Level 1)
+│   │       ├── v2              # API version 2 (Level 2)
+│   │       ├── v3              # API version 3 (Level 3)
+│   │       ├── v4              # API version 4 (Level 4)
+│   │       ├── v5              # API version 5 (Level 5)
+│   │       └── v6              # Placeholder for future levels
+│   ├── resources
+│   │   ├── static              # Static resources
+│   │   ├── templates           # Template files
+│   │   ├── application.properties # Configuration file
+│   │   └── schema.sql          # SQL schema for initialization
+
+```
+### **Version-Specific Directories**
+Each version (`v1`, `v2`, ..., `v5`) includes the following components:
+
+- **Controller**: Handles HTTP requests and routes them to services.
+- **Service**: Contains business logic for API operations.
+- **Repository**: Handles database interactions.
+- **DTO**: Defines data transfer objects for API requests and responses.
+
+
+### **Shared Entities**
+The `entity` package contains shared entity classes that are used across all API versions.
 
 ---
 # ER Diagram
@@ -239,3 +292,5 @@ Response 200
         "message": "Invalid password"
       }
       ```
+## Level 6: Validaton
+### **In Progress..**
